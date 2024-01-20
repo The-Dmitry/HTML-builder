@@ -59,6 +59,9 @@ const {
     }
   }
 
-  copyFolder(path.join(__dirname, 'assets'), path.join(distFolder, 'assets'));
+  await copyFolder(
+    path.join(__dirname, 'assets'),
+    path.join(distFolder, 'assets'),
+  );
   console.log('Final build has been created!');
 })();
