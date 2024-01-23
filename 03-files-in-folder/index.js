@@ -13,7 +13,7 @@ const path = require('path');
         fs.stat(filePath, (err, stats) => {
           if (err) throw err;
           console.log(
-            `${item.name.split('.')[0]} - ${path
+            `${item.name.split('.').slice(0, -1).join('.')} - ${path
               .extname(filePath)
               .slice(1)} - ${(stats.size / 1024).toFixed(3)}kb`,
           );
