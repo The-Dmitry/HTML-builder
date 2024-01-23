@@ -12,10 +12,12 @@ const path = require('path');
         let filePath = path.join(__dirname, 'secret-folder', item.name);
         fs.stat(filePath, (err, stats) => {
           if (err) throw err;
+          const ext = path.extname(filePath);
+          const name = item.name.replace(ext, '');
           console.log(
-            `${item.name.split('.').slice(0, -1).join('.')} - ${path
-              .extname(filePath)
-              .slice(1)} - ${(stats.size / 1024).toFixed(3)}kb`,
+            `${name} - ${ext.replace('.', '')} - ${(stats.size / 1024).toFixed(
+              3,
+            )}kb`,
           );
         });
       }
